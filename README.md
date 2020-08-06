@@ -2,6 +2,9 @@
 
 # signal-desktop-lockscreen
 
+**Requirements:**
+- `npm`
+
 **Supported Operating Systems:**
 - Linux
 - MacOS
