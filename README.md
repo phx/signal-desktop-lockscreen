@@ -2,7 +2,7 @@
 
 # signal-desktop-lockscreen
 
-*Supported Operating Systems:*
+**Supported Operating Systems:**
 - Linux
 - MacOS
 
