@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if echo "$1" | grep -q 'mac' >/dev/null 2>&1; then
+if uname -a | grep -q Darwin >/dev/null 2>&1; then
   MAC=1
 else
   MAC=0
