@@ -28,7 +28,7 @@ function displayLockScreen() {
   div.style.display = "block";
   div.style["z-index"] = "9999999";
   div.style.color = "#ffffff";
-  div.innerHTML = '<center><img style="margin-top: 20%;" src="./images/icon_128.png"/><h3>Signal is locked.</h3><form action="" method="get" name="lockscreen_form" id="lockscreen_form"><input type="password" name="password" id="password" placeholder="Enter passphrase to unlock."></textarea><input type="submit" style="display:none" /></form></center>';
+  div.innerHTML = '<center><img style="margin-top: 20%;" src="./images/icon_128.png"/><h3>Signal is locked.</h3><form action="" method="get" name="lockscreen_form" id="lockscreen_form"><input type="password" name="password" id="password" placeholder="Enter passphrase to unlock." autofocus="autofocus" /><input type="submit" style="display:none" /></form></center>';
   document.body.appendChild(div)
   keybox = document.getElementById("password");
   keybox.style.background = "#121212";
@@ -36,7 +36,6 @@ function displayLockScreen() {
   keybox.style.color = "#ffffff";
   keybox.style["font-size"] = "1em";
   keybox.style["font-family"] = '"Lucida Console", Monaco, "Courier New", Courier, monospace';
-  //keybox.style["font-weight"] = "bold";
   keybox.style.margin = "0";
   keybox.style.padding = "13px 13px 10px 10px";
   keybox.style.width = "300px";
@@ -45,6 +44,7 @@ function displayLockScreen() {
   keybox.style["-webkit-border-radius"] = "10px";
   keybox.style["-moz-border-radius"] = "10px";
   keybox.style["border-radius"] = "10px";
+  keybox.focus();
 }
 
 ready(function() {
