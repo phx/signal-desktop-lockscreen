@@ -28,7 +28,7 @@ function displayLockScreen() {
   div.style.display = "block";
   div.style["z-index"] = "9999999";
   div.style.color = "#ffffff";
-  div.innerHTML = '<center><img style="margin-top: 20%;" src="./images/icon_128.png"/><h3>Signal is locked.</h3><form action="" method="get" name="lockscreen_form" id="lockscreen_form"><input type="password" name="password" id="password" placeholder="Enter passphrase to unlock." autofocus="autofocus" /><input type="submit" style="display:none" /></form></center>';
+  div.innerHTML = '<center><img style="margin-top: 20%;" src="./images/icon_128.png"/><h3>Signal is locked.</h3><form action="" method="get" name="lockscreen_form" id="lockscreen_form"><input type="password" name="password" id="password" placeholder="Enter passphrase to unlock." /><input type="submit" style="display:none" /></form></center>';
   document.body.appendChild(div)
   keybox = document.getElementById("password");
   keybox.style.background = "#121212";
@@ -55,6 +55,7 @@ document.onkeyup = function(lockscreen) {
   if (lockscreen.ctrlKey && lockscreen.which == 76) {
     document.lockscreen_form.reset();
     document.getElementById("lockscreen").style.display = "block";
+    document.getElementById("password").focus();
   }
   if (lockscreen.which == 13) {
     var div = document.getElementById("lockscreen");
