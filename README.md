@@ -9,9 +9,9 @@
 - Linux
 - MacOS
 
-Run this script to patch your Signal Desktop installation to support an application lockscreen, activated with Ctrl+L.
+Run this script to patch your Signal Desktop installation to support an application lockscreen, activated with <kbd>Ctrl</kbd> + <kbd>L</kbd>.
 
-It runs 5 seconds after Signal starts in order to allow your messages to load, and can later be invoked with Ctrl+L.
+It runs 5 seconds after Signal starts in order to allow your messages to load, and can later be invoked with <kbd>Ctrl</kbd> + <kbd>L</kbd>
 
 This interactive script will prompt you for a password that will be stored in your Signal configuration directory.
 
@@ -19,9 +19,12 @@ You will need to run this patch every time Signal Desktop is updated in order to
 
 ## Details
 
-I have already submitted [Pull request #4439](https://github.com/signalapp/Signal-Desktop/pull/4439) to the Signal development branch, which implements a pseudo lockscreen functionality by locking with `Ctrl+L`
-and unlocking with either `Ctrl+;` or `Ctrl+'`.
+I have already submitted [Pull request #4439](https://github.com/signalapp/Signal-Desktop/pull/4439) to the Signal development branch, which implements a pseudo lockscreen functionality by locking with <kbd>Ctrl</kbd> + <kbd>L</kbd>
+and unlocking with either <kbd>Ctrl</kbd> + <kbd>;</kbd> or <kbd>Ctrl</kbd> + <kbd>'</kbd>.
 
 The reason I have not submitted this as an official pull request is because it requires more serverside interaction than I am familiar with and would have to be implemented in Node.js rather than clientside
 JavaScript.  It's a great functionality and works perfectly for my use cases.  Please inspect the code before running it in order to assure yourself that it's not doing anything malicious, as Signal
 is a very sensitive and private application that we want to keep sensitive and private.
+
+If [Pull request #4439](https://github.com/signalapp/Signal-Desktop/pull/4439) ever gets approved and merged into the official Signal Desktop master branch, I have made sure that this patch continues to work when applied.
+Instead of having a pseudo-lockscreen with <kbd>Ctrl</kbd> + <kbd>L</kbd>, you will have an actual functioning lockscreen with password integration, which this patch provides.

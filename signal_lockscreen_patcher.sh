@@ -25,16 +25,18 @@ sudo cp -r "${SIGNAL_DIR}/app.asar" .
 sudo chown "$LOGNAME" app.asar
 asar extract app.asar app.asar.unpacked
 
-IFS=''
-while read -r line; do
-  if echo "$line" | grep -q "src='js/wall_clock_listener.js'>" >/dev/null 2>&1; then
-    echo -e "$line"
-    echo -e "  <script type='text/javascript' src='js/lockscreen.js'></script>"
-  else
-    echo -e "$line"
-  fi
-done < "app.asar.unpacked/background.html" > "background.html"
-mv background.html "app.asar.unpacked"/
+if ! grep -q 'lockscreen.js' app.asar.unpacked/background.html >/dev/null 2>&1; then
+  IFS=''
+  while read -r line; do
+    if echo "$line" | grep -q "src='js/wall_clock_listener.js'>" >/dev/null 2>&1; then
+      echo -e "$line"
+      echo -e "  <script type='text/javascript' src='js/lockscreen.js'></script>"
+    else
+      echo -e "$line"
+    fi
+  done < "app.asar.unpacked/background.html" > "background.html"
+  mv background.html "app.asar.unpacked"/
+fi
 sed "s@\*\*\*LOCK_KEY_FILE_HERE\*\*\*@${PASSWD_KEY}@" "lockscreen.template.js" > "app.asar.unpacked/js/lockscreen.js"
 
 asar pack app.asar.unpacked app.asar
@@ -54,8 +56,11 @@ pass_prompt() {
   fi
 }
 
-pass_prompt
+if [ ! -f "$PASSWD_KEY" ]; then
+  pass_prompt
+fi
 
+echo -e '\nRestarting Signal...'
 if [ $MAC -eq 1 ]; then
   osascript -e 'Tell application "Signal" to quit'
   sleep 5
@@ -67,3 +72,4 @@ else
 fi
 
 rm -rf app.asar.unpacked
+echo -e '\nDone.\n'
