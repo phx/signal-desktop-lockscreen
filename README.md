@@ -1,17 +1,21 @@
+![Platform: Linux/MacOS](https://img.shields.io/badge/platform-Linux%2FMacOS-blue)
+![Requirements: Linux/MacOS](https://img.shields.io/badge/requirements-npm-blue)
+![Follow me on Twitter](https://img.shields.io/twitter/follow/rubynorails?label=follow&style=social)
+![Tweet about this Project](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2Fphx%2Fsignal-desktop-lockscreen)
+
 ![signal-desktop-lockscreen](./animation.gif?raw=true)
 
 # signal-desktop-lockscreen
 
-**Requirements:**
-- `npm`
+```
+git clone https://github.com/phx/signal-desktop-lockscreen
+cd signal-desktop-lockscreen
+./signal_lockscreen_patcher.sh
+```
 
-**Supported Operating Systems:**
-- Linux
-- MacOS
+Run this script to patch your Signal Desktop installation to support an application lockscreen, and activate the lockscreen with <kbd>Ctrl</kbd> + <kbd>L</kbd>.
 
-Run this script to patch your Signal Desktop installation to support an application lockscreen, activated with <kbd>Ctrl</kbd> + <kbd>L</kbd>.
-
-It runs 5 seconds after Signal starts in order to allow your messages to load, and can later be invoked with <kbd>Ctrl</kbd> + <kbd>L</kbd>
+It runs 5 seconds after Signal starts in order to allow your messages to load, and can later be invoked again like above by the <kbd>Ctrl</kbd> + <kbd>L</kbd> keyboard shortcut.
 
 This interactive script will prompt you for a password that will be stored in your Signal configuration directory.
 
