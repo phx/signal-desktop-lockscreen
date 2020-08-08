@@ -14,6 +14,13 @@ else
   PASSWD_KEY="$HOME/.config/Signal/.lockkey"
 fi
 
+if [ ! -d "$SIGNAL_DIR" ]; then
+  echo "No Signal Desktop installation was found" & exit
+fi
+if [ ! -d "$CONFIG_DIR" ]; then
+  echo "Signal config directory was not found" & exit
+fi
+
 if ! command -v npm >/dev/null 2>&1; then
   echo 'This patch requires npm to be installed' & exit
 fi
@@ -73,3 +80,4 @@ fi
 
 rm -rf app.asar.unpacked
 echo -e '\nDone.\n'
+
