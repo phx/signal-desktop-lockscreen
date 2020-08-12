@@ -29,13 +29,13 @@ cd signal-desktop-lockscreen
   - If you download as a zip file, unzip the repository, and navigate to the unzipped folder.
 - Double-click `[signal_lockscreen_patcher.bat](./signal_lockscreen_patcher.bat)`, and once the script finishes, you are good to go.
 
-## Details
+### Details
 
 I previously submitted [Pull request #4439](https://github.com/signalapp/Signal-Desktop/pull/4439) to the Signal development branch, which implements a pseudo lockscreen functionality by locking with <kbd>Ctrl</kbd> + <kbd>L</kbd>
 and unlocking with either <kbd>Ctrl</kbd> + <kbd>;</kbd> or <kbd>Ctrl</kbd> + <kbd>'</kbd>, but that PR got denied because it didn't meet security standards and was not considered a "full feature", specifically, this was the response
 that I received:
 
-*Thank you for the pull request, while this is an artful solution to the lock-screen issue it doesn't fully satisfy the requirements for security. We would also need some design resources on this to fully implement screen lock.*
+*"Thank you for the pull request, while this is an artful solution to the lock-screen issue it doesn't fully satisfy the requirements for security. We would also need some design resources on this to fully implement screen lock."*
 
 The reason I have not submitted the full functionality displayed in this patch as an official pull request is because it would require full  serverside implementation via Node.js, and I am simply not familiar enough with the idosyncracies
 of the source code at this point in order to allow me to develop that functionality on my own. Thus, I have resulted to the serverside set up via the patch script, and clientside implementation in JavaScript.
@@ -50,4 +50,4 @@ Hopefully in the future, the Signal Desktop development team will implement this
 options, or at least store the password hash in the local database to implement serverside checks rather than the clientside checks that I have implemented.  This would end up satisfying the security requirements.  However, until that
 day comes, by running this patch every time you update signal, you will have a fully-functional lockscreen as an additional privacy feature.
 
-I did what I could, guys.  It's enough for me for now until someone figures out how to implement this in the native code.
+I did what I could, guys.  It's enough for me for now until someone figures out how to implement this in the native Signal Desktop code.
