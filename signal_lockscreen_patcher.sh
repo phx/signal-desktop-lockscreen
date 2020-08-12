@@ -26,7 +26,9 @@ if ! command -v asar >/dev/null 2>&1; then
 fi
 
 sudo cp -r "${SIGNAL_DIR}/app.asar" .
+sudo cp -r "${SIGNAL_DIR}/app.asar.unpacked" .
 sudo chown "$LOGNAME" app.asar
+sudo chown -R "$LOGNAME" app.asar.unpacked
 asar extract app.asar app.asar.unpacked
 
 if ! grep -q 'lockscreen.js' app.asar.unpacked/background.html >/dev/null 2>&1; then
