@@ -29,11 +29,11 @@ cd signal-desktop-lockscreen
   - If you download as a zip file, unzip the repository, and navigate to the unzipped folder.
 - Double-click `[signal_lockscreen_patcher.bat](./signal_lockscreen_patcher.bat)`, and once the script finishes, you are good to go.
 
-### Details
+## Details
 
 I previously submitted [Pull request #4439](https://github.com/signalapp/Signal-Desktop/pull/4439) to the Signal development branch, which implements a pseudo lockscreen functionality by locking with <kbd>Ctrl</kbd> + <kbd>L</kbd>
-and unlocking with either <kbd>Ctrl</kbd> + <kbd>;</kbd> or <kbd>Ctrl</kbd> + <kbd>'</kbd>, but that PR got denied because it didn't meet security standards and was not considered a "full feature", specifically, this was the response
-that I received:
+and unlocking with either <kbd>Ctrl</kbd> + <kbd>;</kbd> or <kbd>Ctrl</kbd> + <kbd>'</kbd>, but that PR got denied because it didn't meet security standards and was not considered a "full feature" -- specifically -- this was the 
+exact response that I received:
 
 *"Thank you for the pull request, while this is an artful solution to the lock-screen issue it doesn't fully satisfy the requirements for security. We would also need some design resources on this to fully implement screen lock."*
 
