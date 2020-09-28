@@ -27,7 +27,7 @@ cd signal-desktop-lockscreen
 
 - Clone the repository, or download as a zip file.
   - If you download as a zip file, unzip the repository, and navigate to the unzipped folder.
-- Double-click `[signal_lockscreen_patcher.bat](./signal_lockscreen_patcher.bat)`, and once the script finishes, you are good to go.
+- Double-click [`signal_lockscreen_patcher.bat`](./signal_lockscreen_patcher.bat), and once the script finishes, you are good to go.
 
 ## Details
 
