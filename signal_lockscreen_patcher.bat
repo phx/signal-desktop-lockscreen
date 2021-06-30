@@ -24,7 +24,8 @@ CALL asar extract app.asar app.asar.unpacked
 DEL /Q app.asar
 
 FINDSTR /I lockscreen.js app.asar.unpacked\background.html >NUL 2>&1
-IF ERRORLEVEL 1 POWERSHELL (Get-Content -path .\app.asar.unpacked\background.html) -replace '^<script type=.text/javascript. src=.js/wall_clock_listener.js.^>^</script^>.*','   ^<script type=''text/javascript'' src=''js/wall_clock_listener.js''^>^</script^>^<script type=''text/javascript'' src=''js/lockscreen.js''^>^</script^>' > background.html
+#IF ERRORLEVEL 1 POWERSHELL (Get-Content -path .\app.asar.unpacked\background.html) -replace '^<script type=.text/javascript. src=.js/wall_clock_listener.js.^>^</script^>.*','   ^<script type=''text/javascript'' src=''js/wall_clock_listener.js''^>^</script^>^<script type=''text/javascript'' src=''js/lockscreen.js''^>^</script^>' > background.html
+IF ERRORLEVEL 1 POWERSHELL (Get-Content -path .\app.asar.unpacked\background.html) -replace '^</body^>','   ^<script type=''text/javascript'' src=''js/lockscreen.js''^>^</script^>^</body^>' > background.html
 SET TMPPASS=%PASSWD_KEY:\=/%
 SET TMPPASS=%TMPPASS:../Roaming/=%
 CALL POWERSHELL (Get-Content -path .\lockscreen.template.js) -replace '\*\*\*LOCK_KEY_FILE_HERE\*\*\*','%TMPPASS%' > lockscreen.js

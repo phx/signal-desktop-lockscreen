@@ -34,9 +34,11 @@ asar extract app.asar app.asar.unpacked
 if ! grep -q 'lockscreen.js' app.asar.unpacked/background.html >/dev/null 2>&1; then
   IFS=''
   while read -r line; do
-    if echo "$line" | grep -q "src='js/wall_clock_listener.js'>" >/dev/null 2>&1; then
-      echo -e "$line"
+    #if echo "$line" | grep -q "src='js/wall_clock_listener.js'>" >/dev/null 2>&1; then
+    if echo "$line" | grep -q "</body>" >/dev/null 2>&1; then
+      #echo -e "$line"
       echo -e "  <script type='text/javascript' src='js/lockscreen.js'></script>"
+      echo -e "$line"
     else
       echo -e "$line"
     fi
