@@ -7,6 +7,8 @@
 
 # signal-desktop-lockscreen
 
+#### WARNING: This breaks functionality on MacOS as of Signal Desktop v5.15.0! (If you have a fix, submit a PR)
+
 Run this script to patch your Signal Desktop installation to support an application lockscreen, and activate the lockscreen with <kbd>Ctrl</kbd> + <kbd>L</kbd>.
 
 It runs 5 seconds after Signal starts in order to allow your messages to load, and can later be invoked again like above by the <kbd>Ctrl</kbd> + <kbd>L</kbd> keyboard shortcut.
