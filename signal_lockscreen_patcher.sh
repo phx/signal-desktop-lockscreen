@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd $(cd -P -- "$(dirname -- "$0")" && pwd -P)
+
 if uname -a | grep -q Darwin >/dev/null 2>&1; then
   MAC=1
 else
@@ -9,6 +11,9 @@ fi
 if [ $MAC -eq 1 ]; then
   SIGNAL_DIR="/Applications/Signal.app/Contents/Resources"
   PASSWD_KEY="$HOME/Library/Application Support/Signal/.lockkey"
+  sed -E 's@<key>AsarIntegrity</key><string>.*&#34;}}</string><key>@<key>@g' "${SIGNAL_DIR}/../Info.plist" > tmp &&\
+  mv tmp "${SIGNAL_DIR}/../Info.plist"
+  sudo chown "${LOGNAME}:admin" "${SIGNAL_DIR}/../Info.plist"
 else
   SIGNAL_DIR="/opt/Signal/resources"
   PASSWD_KEY="$HOME/.config/Signal/.lockkey"
@@ -49,6 +54,9 @@ sed "s@\*\*\*LOCK_KEY_FILE_HERE\*\*\*@${PASSWD_KEY}@" "lockscreen.template.js" >
 
 asar pack app.asar.unpacked app.asar
 sudo mv app.asar "$SIGNAL_DIR"/
+if [ $MAC -eq 1 ]; then
+  xattr -cr /Applications/Signal.app
+fi
 
 pass_prompt() {
   echo -e "\nThe following password file will be stored at $PASSWD_KEY:\n"
