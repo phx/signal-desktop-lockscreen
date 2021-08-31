@@ -7,7 +7,7 @@ if ! command -v brew 2>&1 > /dev/null; then
 fi
 brew install git git-lfs nvm
 
-BRANCH="$(curl -skL 'https://api.github.com/repos/signalapp/Signal-Desktop/releases/latest' | grep tarball_url | awk -F '": "' '{print $NF}' | sed 's/",$//' | awk -F '/' '{print $NF}' | sed -E 's/v([0-9]+\.[0-9]+\.)[0-9]+/\1.x/')"
+BRANCH="$(curl -skL 'https://api.github.com/repos/signalapp/Signal-Desktop/releases/latest' | grep tarball_url | awk -F '": "' '{print $NF}' | sed 's/",$//' | awk -F '/' '{print $NF}' | sed -E 's/v([0-9]+\.[0-9]+\.)[0-9]+/\1x/')"
 sudo rm -rf "$HOME/.signal-desktop"
 git clone --single-branch --branch 5.15.x https://github.com/signalapp/Signal-Desktop "$HOME/.signal-desktop" || exit 1
 cd "$HOME/.signal-desktop" || exit 1
