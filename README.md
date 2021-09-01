@@ -9,7 +9,7 @@
 
 #### WARNING: This breaks functionality as of Signal Desktop v5.15.0! (If you have a fix, submit a PR)
 
-*In the meantime, I have created a script specifically for Mac that can be run manually anytime you are notified of an available Signal Desktop update.*
+*In the meantime, I have created a script specifically for MacOS that can be run manually anytime you are notified of an available Signal Desktop update.*
 
 It requires `homebrew` to ALREADY be installed:
 
@@ -20,9 +20,9 @@ sudo cp update_macos_macos.sh /usr/local/bin/update_signal
 update_signal
 ```
 
-This basically installs Signal from source with the lockscreen code already in place.
+This will fully-install Signal from source with the lockscreen code already in place.
 
-## Installing from source with lock screen in place:
+## Building from source with lock screen in place (Linux and MacOS):
 
 I maintain a forked repository that is kept in sync with the official Signal-Desktop repo at [https://github.com/phx/Signal-Desktop-With-Lockscreen](https://github.com/phx/Signal-Desktop-With-Lockscreen).
 
@@ -32,7 +32,7 @@ It is a bash script, so it will only work with MacOS and Linux.  If you want to 
 
 ## Old directions:
 
-*If you install older versions of Signal-Desktop from source on any platform, here are the old directions:*
+*If you have currently-installed [or build from source] older versions of Signal-Desktop (<5.15.0) on any platform, here are the old directions:*
 
 Run this script to patch your Signal Desktop installation to support an application lockscreen, and activate the lockscreen with <kbd>Ctrl</kbd> + <kbd>L</kbd>.
 
