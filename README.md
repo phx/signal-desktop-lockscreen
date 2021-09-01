@@ -32,7 +32,7 @@ It is a bash script, so it will only work with MacOS and Linux.  If you want to 
 
 ## Old directions:
 
-*If you have currently-installed [or build from source] older versions of Signal-Desktop (<5.15.0) on any platform, here are the old directions:*
+*If you have currently-installed [or built from source] older versions of Signal-Desktop (<5.15.0) on any platform, here are the old directions:*
 
 Run this script to patch your Signal Desktop installation to support an application lockscreen, and activate the lockscreen with <kbd>Ctrl</kbd> + <kbd>L</kbd>.
 
