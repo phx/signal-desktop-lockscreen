@@ -24,7 +24,7 @@ This will fully-install Signal from source with the lockscreen code already in p
 
 ## Building from source with lock screen in place (Linux and MacOS):
 
-I maintain a forked repository that is kept in sync with the official Signal-Desktop repo at [https://github.com/phx/Signal-Desktop-With-Lockscreen](https://github.com/phx/Signal-Desktop-With-Lockscreen).
+I maintain a repository that is kept in sync with the latest official Signal-Desktop release version from the repo at [https://github.com/phx/Signal-Desktop-With-Lockscreen](https://github.com/phx/Signal-Desktop-With-Lockscreen).
 
 There is a build script in that repo with directions to build an official release as long as you have all of the dependencies installed.
 
