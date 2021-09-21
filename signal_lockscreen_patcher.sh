@@ -30,13 +30,16 @@ if ! command -v asar >/dev/null 2>&1; then
   npm install -g asar
 fi
 
+sudo cp -r "${SIGNAL_DIR}/app.asar" "${SIGNAL_DIR}/app.asar.bak"
+sudo cp -r "${SIGNAL_DIR}/app.asar.unpacked" "${SIGNAL_DIR}/app.asar.unpacked.bak"
 sudo cp -r "${SIGNAL_DIR}/app.asar" .
 sudo cp -r "${SIGNAL_DIR}/app.asar.unpacked" .
+rm -rf "${SIGNAL_DIR}/app.asar" "${SIGNAL_DIR}/app.asar.unpacked"
 sudo chown "$LOGNAME" app.asar
 sudo chown -R "$LOGNAME" app.asar.unpacked
-asar extract app.asar app.asar.unpacked
+asar extract app.asar app
 
-if ! grep -q 'lockscreen.js' app.asar.unpacked/background.html >/dev/null 2>&1; then
+if ! grep -q 'lockscreen.js' app/background.html >/dev/null 2>&1; then
   IFS=''
   while read -r line; do
     #if echo "$line" | grep -q "src='js/wall_clock_listener.js'>" >/dev/null 2>&1; then
@@ -47,15 +50,16 @@ if ! grep -q 'lockscreen.js' app.asar.unpacked/background.html >/dev/null 2>&1; 
     else
       echo -e "$line"
     fi
-  done < "app.asar.unpacked/background.html" > "background.html"
-  mv background.html "app.asar.unpacked"/
+  done < "app/background.html" > "background.html"
+  mv background.html app/
 fi
-sed "s@\*\*\*LOCK_KEY_FILE_HERE\*\*\*@${PASSWD_KEY}@" "lockscreen.template.js" > "app.asar.unpacked/js/lockscreen.js"
+sed "s@\*\*\*LOCK_KEY_FILE_HERE\*\*\*@${PASSWD_KEY}@" "lockscreen.template.js" > "app/js/lockscreen.js"
 
-asar pack app.asar.unpacked app.asar
-sudo mv app.asar "$SIGNAL_DIR"/
+#asar pack app.asar.unpacked app.asar
+sudo mv app "$SIGNAL_DIR"/
+sudo mv app.asar.unpacked "$SIGNAL_DIR"/
 if [ $MAC -eq 1 ]; then
-  xattr -cr /Applications/Signal.app
+  sudo xattr -cr /Applications/Signal.app
 fi
 
 pass_prompt() {
@@ -87,6 +91,6 @@ else
   (signal-desktop &) >/dev/null 2>&1
 fi
 
-rm -rf app.asar.unpacked
+rm -rf app.asar app
 echo -e '\nDone.\n'
 
