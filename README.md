@@ -7,34 +7,9 @@
 
 # signal-desktop-lockscreen
 
-#### WARNING: This breaks functionality as of Signal Desktop v5.15.0! (If you have a fix, submit a PR)
+Run this script to patch your existing Signal Desktop installation to support an application lockscreen, and activate the lockscreen with <kbd>Ctrl</kbd> + <kbd>L</kbd>.
 
-*In the meantime, I have created a script specifically for MacOS that can be run manually anytime you are notified of an available Signal Desktop update.*
-
-It requires `homebrew` to ALREADY be installed:
-
-```
-git clone https://github.com/phx/signal-desktop-lockscreen
-cd signal-desktop-lockscreen
-sudo cp update_macos_macos.sh /usr/local/bin/update_signal
-update_signal
-```
-
-This will fully-install Signal from source with the lockscreen code already in place.
-
-## Building from source with lock screen in place (Linux and MacOS):
-
-I maintain a repository that is kept in sync with the latest official Signal-Desktop release version from the repo at [https://github.com/phx/Signal-Desktop-With-Lockscreen](https://github.com/phx/Signal-Desktop-With-Lockscreen).
-
-There is a build script in that repo with directions to build an official release as long as you have all of the dependencies installed.
-
-It is a bash script, so it will only work with MacOS and Linux.  If you want to port it to PowerShell so that the repo also works with Windows releases, submit a PR to that repository.
-
-## Old directions:
-
-*If you have currently-installed [or built from source] older versions of Signal-Desktop (<5.15.0) on any platform, here are the old directions:*
-
-Run this script to patch your Signal Desktop installation to support an application lockscreen, and activate the lockscreen with <kbd>Ctrl</kbd> + <kbd>L</kbd>.
+(You should have already launched Signal at least once before running this script, especially on MacOS.)
 
 It runs 5 seconds after Signal starts in order to allow your messages to load, and can later be invoked again like above by the <kbd>Ctrl</kbd> + <kbd>L</kbd> keyboard shortcut.
 
@@ -50,7 +25,7 @@ cd signal-desktop-lockscreen
 ./signal_lockscreen_patcher.sh
 ```
 
-## Windows instructions
+## Windows instructions (untested after 5.15.x, but should work!)
 
 - Clone the repository, or download as a zip file.
   - If you download as a zip file, unzip the repository, and navigate to the unzipped folder.
