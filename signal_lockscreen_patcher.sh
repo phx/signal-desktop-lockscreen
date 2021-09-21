@@ -34,7 +34,7 @@ sudo cp -r "${SIGNAL_DIR}/app.asar" "${SIGNAL_DIR}/app.asar.bak"
 sudo cp -r "${SIGNAL_DIR}/app.asar.unpacked" "${SIGNAL_DIR}/app.asar.unpacked.bak"
 sudo cp -r "${SIGNAL_DIR}/app.asar" .
 sudo cp -r "${SIGNAL_DIR}/app.asar.unpacked" .
-rm -rf "${SIGNAL_DIR}/app.asar" "${SIGNAL_DIR}/app.asar.unpacked"
+sudo rm -rf "${SIGNAL_DIR}/app.asar" "${SIGNAL_DIR}/app.asar.unpacked"
 sudo chown "$LOGNAME" app.asar
 sudo chown -R "$LOGNAME" app.asar.unpacked
 asar extract app.asar app
