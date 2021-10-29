@@ -24,18 +24,12 @@ CALL asar extract app.asar app
 DEL /Q app.asar
 
 FINDSTR /I lockscreen.js app\background.html >NUL 2>&1
-#IF ERRORLEVEL 1 POWERSHELL (Get-Content -path .\app.asar.unpacked\background.html) -replace '^<script type=.text/javascript. src=.js/wall_clock_listener.js.^>^</script^>.*','   ^<script type=''text/javascript'' src=''js/wall_clock_listener.js''^>^</script^>^<script type=''text/javascript'' src=''js/lockscreen.js''^>^</script^>' > background.html
 IF ERRORLEVEL 1 POWERSHELL (Get-Content -path .\app\background.html) -replace '^</body^>','   ^<script type=''text/javascript'' src=''js/lockscreen.js''^>^</script^>^</body^>' > background.html
 SET TMPPASS=%PASSWD_KEY:\=/%
 SET TMPPASS=%TMPPASS:../Roaming/=%
 CALL POWERSHELL (Get-Content -path .\lockscreen.template.js) -replace '\*\*\*LOCK_KEY_FILE_HERE\*\*\*','%TMPPASS%' > lockscreen.js
 MOVE /Y background.html app\background.html >NUL 2>&1
 MOVE /Y lockscreen.js app\js\lockscreen.js >NUL
-
-ECHO Packing archive...
-TASKKILL /IM Signal.exe >NUL 2>&1
-REM CALL asar pack app.asar.unpacked app.asar
-RMDIR /S /Q app.asar.unpacked
 MOVE /Y app %SIGNAL_DIR%\ >NUL
 
 IF NOT EXIST %PASSWD_KEY% CALL :SET_PASSWD_KEY
