@@ -7,6 +7,8 @@
 
 # signal-desktop-lockscreen
 
+** NOTE: ** This has stopped working in the latest versions of Signal. I will investigate as time permits.
+
 Run this script to patch your existing Signal Desktop installation to support an application lockscreen, and activate the lockscreen with <kbd>Ctrl</kbd> + <kbd>L</kbd>.
 
 (You should have already launched Signal at least once before running this script, especially on MacOS.)
